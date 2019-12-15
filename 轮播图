@@ -91,20 +91,20 @@
 </head>
 <body>	
 	<div id="tb">
-		<img id="tpi" src="./a15.png" alt="顶部图">
+		<img id="tpi" src="a15.png" alt="顶部图">
 		<div id="tp">
 			<p id="pone">[温馨提示]最近有不少不法分子在网上骗人，请大家注意！</p>
 		</div>
 	</div>
 	<div id="zhubox">
 		<div id="zhuboximg">
-			<div class="img"><img src="./b5.png" alt="轮播图"/></div>
-			<div class="img"><img src="./b1.png" alt="轮播图"/></div>
-			<div class="img"><img src="./b2.png" alt="轮播图"/></div>
-			<div class="img"><img src="./b3.png" alt="轮播图"/></div>
-			<div class="img"><img src="./b4.png" alt="轮播图"/></div>
-			<div class="img"><img src="./b5.png" alt="轮播图"/></div>
-			<div class="img"><img src="./b1.png" alt="轮播图"/></div>
+			<div class="img"><img src="b5.png" alt="轮播图"/></div>
+			<div class="img"><img src="b1.png" alt="轮播图"/></div>
+			<div class="img"><img src="b2.png" alt="轮播图"/></div>
+			<div class="img"><img src="b3.png" alt="轮播图"/></div>
+			<div class="img"><img src="b4.png" alt="轮播图"/></div>
+			<div class="img"><img src="b5.png" alt="轮播图"/></div>
+			<div class="img"><img src="b1.png" alt="轮播图"/></div>
 		</div>
 		<span class="huanye" id="left"><</span>
 		<span class="huanye" id="right">></span>
