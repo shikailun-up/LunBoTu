@@ -91,7 +91,7 @@
 </head>
 <body>	
 	<div id="tb">
-		<img id="tpi" src="img/a15.png" alt="顶部图">
+		<img id="tpi" src="./a15.png" alt="顶部图">
 		<div id="tp">
 			<p id="pone">[温馨提示]最近有不少不法分子在网上骗人，请大家注意！</p>
 		</div>
