@@ -98,13 +98,13 @@
 	</div>
 	<div id="zhubox">
 		<div id="zhuboximg">
-			<div class="img"><img src="img/b5.png" alt="轮播图"/></div>
-			<div class="img"><img src="img/b1.png" alt="轮播图"/></div>
-			<div class="img"><img src="img/b2.png" alt="轮播图"/></div>
-			<div class="img"><img src="img/b3.png" alt="轮播图"/></div>
-			<div class="img"><img src="img/b4.png" alt="轮播图"/></div>
-			<div class="img"><img src="img/b5.png" alt="轮播图"/></div>
-			<div class="img"><img src="img/b1.png" alt="轮播图"/></div>
+			<div class="img"><img src="./b5.png" alt="轮播图"/></div>
+			<div class="img"><img src="./b1.png" alt="轮播图"/></div>
+			<div class="img"><img src="./b2.png" alt="轮播图"/></div>
+			<div class="img"><img src="./b3.png" alt="轮播图"/></div>
+			<div class="img"><img src="./b4.png" alt="轮播图"/></div>
+			<div class="img"><img src="./b5.png" alt="轮播图"/></div>
+			<div class="img"><img src="./b1.png" alt="轮播图"/></div>
 		</div>
 		<span class="huanye" id="left"><</span>
 		<span class="huanye" id="right">></span>
