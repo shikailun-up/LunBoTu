@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>轮播图</title>
+	<style type="text/css">
+		#tb{
+			width:1450px;
+			margin:55px 20px;
+			height:20px;
+			background:#CCCCCC;
+			position:relative;
+		}
+		#zhubox{
+			width:1200px;
+			margin:-40px 155px;
+			overflow:hidden;
+			height:375px;
+			left:-20px;
+			position:relative;
+		}
+		#tpi{
+			margin-top:2px;
+			margin-left:247px;
+			position:absolute;
+		}
+		#pone{
+			width: 400px;
+			font-size: 13px;
+			padding-left: 600px;
+			left:445px;
+			position: absolute;
+			color:#FF0000;
+			top:-11px;
+		}
+		#tp{
+			width: 990px;
+			height: 20px;
+			left: 265px;
+			overflow: hidden;
+			position: absolute;
+		}
+		.zuihou{
+			color:#FFFFFF;
+			background-color: #FF0000;
+		}
+		#zhuboximg{
+			width:9800px;
+			left: -1200px;
+			position: absolute;
+		}
+		.img{
+			width: 1200px;
+			float: left;
+			overflow: hidden;
+		}
+		#left{
+			left:31px;
+			color:#FFFFFF;
+		}
+		li{
+			padding-left:7px;
+			float: left;
+			width: 15px;
+			height: 18px;
+			background-color: #CCCCCC;
+			margin-left:10px ;
+			border-radius: 48%;
+			list-style-type: none;
+		}
+		span{
+			background-color:#FF0000;
+			display: block;
+			width:33px;
+			height: 54px;
+			top: 159px;
+			line-height:54px;
+			text-align: center;
+			position: absolute;
+		}
+		#right{
+			right:31px;
+			color:#FFFFFF;
+		}
+		ul{
+			left: 502px;
+			bottom:-5px;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>	
+	<div id="tb">
+		<img id="tpi" src="img/a15.png" alt="顶部图">
+		<div id="tp">
+			<p id="pone">[温馨提示]最近有不少不法分子在网上骗人，请大家注意！</p>
+		</div>
+	</div>
+	<div id="zhubox">
+		<div id="zhuboximg">
+			<div class="img"><img src="img/b5.png" alt="轮播图"/></div>
+			<div class="img"><img src="img/b1.png" alt="轮播图"/></div>
+			<div class="img"><img src="img/b2.png" alt="轮播图"/></div>
+			<div class="img"><img src="img/b3.png" alt="轮播图"/></div>
+			<div class="img"><img src="img/b4.png" alt="轮播图"/></div>
+			<div class="img"><img src="img/b5.png" alt="轮播图"/></div>
+			<div class="img"><img src="img/b1.png" alt="轮播图"/></div>
+		</div>
+		<span class="huanye" id="left"><</span>
+		<span class="huanye" id="right">></span>
+		<ul id="yema">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	//animate.js如下
+	function getStyle(obj, attr){
+	if(obj.currentStyle){
+		return obj.currentStyle[attr];
+	} else {
+		return getComputedStyle(obj, null)[attr];
+		}
+	}
+	function animate(obj,json,callback){
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function(){
+			var isStop = true;
+			for(var attr in json){
+				var now = 0;
+				if(attr == 'opacity'){
+					now = parseInt(getStyle(obj,attr)*100);
+				}else{
+					now = parseInt(getStyle(obj,attr));
+				}
+				var speed = (json[attr] - now) / 8;
+				speed = speed>0?Math.ceil(speed):Math.floor(speed);
+				var cur = now + speed;
+				if(attr == 'opacity'){
+					obj.style[attr] = cur / 100;
+				}else{
+					obj.style[attr] = cur + 'px';
+				}
+				if(json[attr] !== cur){
+					isStop = false;
+				}
+			}
+			if(isStop){
+				clearInterval(obj.timer);
+				callback&&callback();
+			}
+		}, 30)
+	}
+	var i=1;
+	var k=76;
+	var one=document.getElementById("one");
+	var zhuboximg = document.getElementById("zhuboximg");
+	var yema = document.getElementById("yema").children;
+	var left = document.getElementById("left");
+	var right = document.getElementById("right");
+	right.onclick = gunDong1;
+	left.onclick = gunDong2;
+	var pone = document.getElementById("pone");
+	var zhubox= document.getElementById("zhubox");
+	var m = setInterval(gunDong1,3000);
+	function gunDong1(){
+		i++;
+		zhanBo();
+		if(i==6){
+			animate(zhuboximg,{left:-1200*i},function(){
+				zhuboximg.style.left ="-1200px";
+				i=1;
+			});				
+		}
+		else
+			animate(zhuboximg,{left:(-1200)*i});
+	}
+	for(var j=0;j<yema.length;++j){
+		yema[j].ix = j;
+		yema[j].onclick=function(){
+			i=this.ix+1;
+			zhanBo();
+			animate(zhuboximg,{left:-1200*i});
+		}
+	}
+	zhubox.onmouseover = function(){
+		
+		animate(right,{opacity:48});
+		animate(left,{opacity:48});
+		clearInterval(m);
+	}
+	zhubox.onmouseout = function(){
+		animate(right,{opacity:0});
+		animate(left,{opacity:0});
+		m = setInterval(gunDong1,2000);
+	}	
+	function zhanBo(){
+		for(var n=1;n<yema.length;n++){
+			yema[n].className = "";
+		}
+		if(i==0){
+			yema[4].className = "zuihou";
+		}
+		if(i==6){
+			yema[0].className = "zuihou";
+		}
+		else{
+			yema[i-1].className = "zuihou";
+		}
+	}
+	function gunDong2(){
+		i--;
+		zhanBo();
+		if(i==0){
+			animate(zhuboximg,{left:(-1200)*i},function(){
+					zhuboximg.style.left ="-6000px";
+					i=5;	
+			});
+		}
+		else{
+			animate(zhuboximg,{left:(-1200)*i});
+		}
+	}
+	//延迟执行
+	setInterval(function(){
+		k--;
+		animate(pone,{left:6*k},function(){
+			if(k==-138){	
+				k=76;
+				pone.style.left ="445px";
+			}
+		});				
+	},300);
+</script>
+</html>
